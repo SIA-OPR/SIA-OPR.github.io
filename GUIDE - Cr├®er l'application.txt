@@ -1,0 +1,52 @@
+OPR SIA - CRÉER L'APPLICATION ANDROID (APK) ET L'INSTALLER SUR IPHONE
+=====================================================================
+Ce dossier contient l'outil OPR vide (aucune donnée de chantier) prêt à devenir une application.
+Durée : environ 20 minutes, une seule fois.
+
+ÉTAPE 1 - METTRE L'OUTIL EN LIGNE (GitHub, gratuit)
+1. Créez un compte sur https://github.com (de préférence avec l'adresse mail SIA). Retenez votre identifiant, par ex. « sia-opr ».
+2. Cliquez « + » en haut à droite > « New repository ».
+   - Repository name : exactement  <votre identifiant>.github.io   (ex. sia-opr.github.io)
+   - Cochez « Public » (seul l'outil vide est publié, jamais vos chantiers)
+   - « Create repository ».
+3. Cliquez « uploading an existing file », glissez TOUS les fichiers de ce dossier (index.html, sw.js, manifest.webmanifest, les icônes, .nojekyll), puis « Commit changes ».
+   Si le fichier .nojekyll n'apparaît pas dans votre explorateur : « Add file » > « Create new file », nommez-le  .nojekyll  , laissez vide, « Commit changes ».
+4. « Settings » > « Pages » > Source : « Deploy from a branch », Branch : main, dossier « / (root) » > « Save ».
+5. Attendez 1 à 2 minutes : l'outil est en ligne à  https://<votre identifiant>.github.io
+   Ouvrez cette adresse sur votre téléphone pour vérifier.
+
+ÉTAPE 2 - FABRIQUER L'APK (PWABuilder, site gratuit de Microsoft)
+1. Allez sur https://www.pwabuilder.com, collez l'adresse https://<votre identifiant>.github.io, cliquez « Start ».
+2. « Package For Stores » > « Android » > « Generate Package ».
+   - Package ID : fr.sia.opr     - App name : OPR & Réceptions SIA     - Short name : OPR SIA
+   - Laissez « Signing key : New » puis « Download Package ».
+3. Le zip téléchargé contient :
+   - un fichier .apk          → c'est l'application à installer sur les Samsung
+   - un fichier .aab          → seulement pour le Play Store (inutile en interne)
+   - signing.keystore + signing-key-info.txt → À CONSERVER précieusement (dans SharePoint), nécessaires pour toute nouvelle version de l'APK
+   - assetlinks.json          → voir point 4
+4. Pour que l'application s'affiche en plein écran (sans barre d'adresse Chrome) :
+   dans GitHub, « Add file » > « Create new file », nom :  .well-known/assetlinks.json
+   collez le contenu du fichier assetlinks.json reçu, « Commit changes ».
+
+ÉTAPE 3 - INSTALLER SUR LES SAMSUNG
+1. Envoyez le fichier .apk sur le téléphone (mail, Teams ou OneDrive).
+2. Ouvrez-le sur le téléphone. Si Android le demande : autorisez « Installer des applications inconnues » pour l'application utilisée (Mes fichiers, OneDrive, Gmail...).
+3. « Installer ». Si Play Protect affiche un avertissement (application non publiée sur le Play Store) : « Plus de détails » > « Installer quand même ».
+4. L'icône « OPR SIA » apparaît. Ouvrez-la une première fois avec du réseau ; ensuite elle fonctionne aussi sans réseau.
+   Chrome doit être installé sur le téléphone (c'est le cas sur la plupart des Samsung).
+
+INSTALLER SUR LES IPHONE (pas d'APK sur iPhone)
+1. Ouvrez https://<votre identifiant>.github.io dans Safari.
+2. Bouton Partager (carré avec une flèche) > « Sur l'écran d'accueil » > « Ajouter ».
+3. L'icône « OPR SIA » apparaît et fonctionne aussi sans réseau après la première ouverture.
+
+MISES À JOUR DE L'OUTIL
+Quand l'outil évolue, il suffit de remplacer index.html dans GitHub (et sw.js fourni avec).
+Les téléphones (Samsung et iPhone) reçoivent la nouvelle version à la prochaine ouverture avec réseau.
+Inutile de refaire l'APK.
+
+UTILISATION AU QUOTIDIEN
+Sur PC : chantier > Exports > « Préparer pour le téléphone ».
+Sur le téléphone : « Importer un chantier » > OneDrive > -Logiciel réception > CHxxxx > Pour téléphone.
+Après la visite : « Envoyer à SharePoint » > déposer le fichier dans OneDrive > -Logiciel réception > CHxxxx > À intégrer.
